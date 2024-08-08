@@ -1,11 +1,17 @@
-import React from "react";
-import useGenre from "../hooks/useGenre";
+import useData from "../hooks/useData";
+import useGenre, { Genre } from "../hooks/useGenre";
 
 const GenreList = () => {
-    const { genres } = useGenre();
+    const { data } = useGenre();
+
+    // const { data } = useData<Genre>("genres");
+    /* not using generic hook directly ,
+       bcz component should not be aware of url endpoint 'genre'
+       it should not be aware of anything about making http request   */
+
     return (
         <ul>
-            {genres.map((genre) => (
+            {data.map((genre) => (
                 <li key={genre.id}>{genre.name}</li>
             ))}
         </ul>
