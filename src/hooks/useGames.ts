@@ -26,12 +26,14 @@ const useGames = (gameQuery: GameQuery) =>
             params: {
                 genres: gameQuery.genre?.id,
                 platforms: gameQuery.platform?.id,
+                ordering: gameQuery.sortOrder,
             },
         },
         [gameQuery]
         // [
         //     gameQuery.genre?.id, // dependecy for useeffect ,can pass selectedGenre
         //     gameQuery.platform?.id,
+        //     gameQuery.sortOrder
         // ]
         // this array object is shorten to [gameQuery] above
     );
